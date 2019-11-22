@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% block content %}
+ <h3> This web services used for NLP and cosine similarity</h3>
+
+<ul>
+    <li>
+      <h5> Find cosine simarity between two text after appling text processing( Lemmatizer, clean stop words"</h5>
+       <pre><code>
+    Request
+    -------------
+    Header: host/nlp
+    Body:
+            {
+            "text1":"hello how is your day",
+            "text2":"hello day is friendly"
+            }
+
+    Response
+    -------------
+    {
+    "score": 0.8333333333333334,
+    "text1NLP": "hello day",
+    "text2NLP": "hello day friendly"
+    }
+</code></pre>
+
+    </li>
+</ul>
+
+
+{% endblock content %}

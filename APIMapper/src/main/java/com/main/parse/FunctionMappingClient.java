@@ -14,24 +14,24 @@ import com.segments.build.Segment;
 /*
  * This clinet using SA to map functions of two libraries
  */
-public class FunctionMappingClinet {
+public class FunctionMappingClient {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 
-		 new FunctionMappingClinet().run();
+		 new FunctionMappingClient().run();
 	}
 	
 	void run() {
-		
-		RepositoriesDB repositoriesDB = new RepositoriesDB();
-
+	 
 		LinkedList<MigrationRule> migrationRules = new MigrationRuleDB().getMigrationRulesWithoutVersion(1);
 		for (MigrationRule migrationRule : migrationRules) {
 			 MigratedLibraries.ID = migrationRule.ID;
 			
 			ArrayList<Segment> segmentList = new MigrationSegmentsDB().getSegmentsObj(migrationRule.ID);
-			new SubstitutionAlgorithm(segmentList).start();
+			SubstitutionAlgorithm substitutionAlgorithm = new SubstitutionAlgorithm(segmentList);
+			substitutionAlgorithm.start();
+			System.out.println("Number of times that SA used Library documentation to break  fragment of code is: "+ substitutionAlgorithm.useLDTimes);
 			
 		}
 		

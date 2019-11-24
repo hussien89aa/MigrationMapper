@@ -17,6 +17,7 @@ import com.segments.build.Segment;
 public class DocsSimilarity {
 
 	NLPWebService nlpWebService = new NLPWebService();
+	private int threadholdForSimilarity = 50;
 
  
 
@@ -49,7 +50,7 @@ public class DocsSimilarity {
 			}
 
 			// get max similarity function mapping
-			CPObject cpObjectMaxFrequnecy = new CPObject(null, null);
+			CPObject cpObjectMaxFrequnecy = new CPObject(null,null);
 			cpObjectMaxFrequnecy.Frequency = 0;
 			for (CPObject cpObject : listOfCP) {
 				if (cpObject.Frequency > cpObjectMaxFrequnecy.Frequency) {
@@ -58,9 +59,11 @@ public class DocsSimilarity {
 			}
 			// set if we have node has max more than 50 will make it as new segment and sed
 			// it to the system
-			if (cpObjectMaxFrequnecy.Frequency > 50) {
+			if (cpObjectMaxFrequnecy.Frequency > threadholdForSimilarity) {
 				segmentBreakToy.removedCode.add(cpObjectMaxFrequnecy.value1);
 				segmentBreakToy.addedCode.add(cpObjectMaxFrequnecy.value2);
+				segmentBreakToy.fromLibVersion = cpObjectMaxFrequnecy.fromLibVersion;
+				segmentBreakToy.toLibVersion = cpObjectMaxFrequnecy.toLibVersion;
 
 			}
 
@@ -79,11 +82,14 @@ public class DocsSimilarity {
 		} else {
 			System.out.println("Loading library documenation");
 		}
-		// load library docs ;
-		ArrayList<MethodDocs> fromLibrary = new LibraryDocumentationDB().getDocs(segment.fromLibVersion, "");
+		
 
+	
 		// load library docs ;
-		ArrayList<MethodDocs> toLibrary = new LibraryDocumentationDB().getDocs(segment.toLibVersion, "");
+		ArrayList<MethodDocs> fromLibrary = new LibraryDocumentationDB().getDocs(segment.fromLibVersion);
+	
+		// load library docs ;
+		ArrayList<MethodDocs> toLibrary = new LibraryDocumentationDB().getDocs(segment.toLibVersion);
 		
 
 		for (String functionNameRemoved : segment.removedCode) {
@@ -93,29 +99,20 @@ public class DocsSimilarity {
 
 			for (String functionNameAdd : segment.addedCode) {
 				CPObject cPObject = new CPObject(functionNameRemoved, functionNameAdd);
+				cPObject.fromLibVersion = segment.fromLibVersion;
+				cPObject.toLibVersion = segment.toLibVersion;
 				int index = cPObject.isFound(listOfCP);
 				if (index == -1) {
 					// Apply lcs
 					// double SimilarDegree= new functionSignature().LCS(funcName2, funName1);
 
 					MethodObj methodToObj = MethodObj.GenerateSignature(functionNameAdd);
+				
 					MethodDocs methodToDocs = MethodDocs.GetObjDocs(toLibrary, methodToObj);
 
 					double SimilarDegree = nlpWebService.getCosineSimilarity(methodFromDocs.description,
 							methodToDocs.description, TextEngineering.textPreprocessing) * 100;
-					/*
-					 * DEBUG System.out.println("-----------=======----------");
-					 * System.out.println(functionNameAdd);
-					 * 
-					 * System.out.println(functionNameRemoved); System.out.println("------");
-					 * System.out.println(methodToObj.fullMethodName);
-					 * System.out.println(methodFormObj.fullMethodName);
-					 * 
-					 * System.out.println("------"); System.out.println( methodToDocs.description );
-					 * System.out.println("------"); System.out.println( methodFromDocs.description
-					 * ); System.out.println("------"); System.out.println(SimilarDegree);
-					 * System.out.println("-----------=======----------");
-					 */
+				 
 
 					// At lest they are similar
 					if (SimilarDegree > 0) {

@@ -47,6 +47,15 @@ public class Segment implements Comparable<Segment> {
 		this.fileName = migrationSegments.fileName;
 
 	}
+	
+	public Segment(String fromLibVersion, String toLibVersion) {
+		this.blockCode = new ArrayList<String>();
+		this.frequency = 1;
+		this.addedCode = new ArrayList<String>();
+		this.removedCode = new ArrayList<String>();
+		this.fromLibVersion =  fromLibVersion;
+		this.toLibVersion = toLibVersion;
+	}
 
 	public static void main(String[] args) {
 

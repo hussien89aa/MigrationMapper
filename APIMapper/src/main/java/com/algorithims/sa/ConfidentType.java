@@ -6,6 +6,6 @@ package com.algorithims.sa;
  *
  */
 public enum ConfidentType {
-	Substitution, CP, FSLCS, CodeSegments, Schafer;
+	Substitution;
 
 }

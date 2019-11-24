@@ -13,7 +13,8 @@ import com.segments.build.Segment;
  * mapping
  */
 public class SubstitutionAlgorithm {
-
+	
+	public int useLDTimes = 0; // number of times that we call LD
 	DocsSimilarity docsSimilarity = new DocsSimilarity();  
 	ArrayList<Segment> segmentList;
  
@@ -72,12 +73,11 @@ public class SubstitutionAlgorithm {
 		}
 
 		boolean hasMoreIntersection = false;
-		int useLDTimes = 0; // number of times that we call LD
+	
 		ArrayList<Segment> segmentListAll = new ArrayList<Segment>();
 		segmentListAll.addAll(segmentList);
 		// System.err.println("____________________");
-		// printFragments(segmentListAll);
-
+		 
 		do {
 
 			// when segmentListAll=1 we done no longer search
@@ -115,7 +115,7 @@ public class SubstitutionAlgorithm {
 
 					}
 					 
-					// In no more intersections founds using library documenation to find more interesctions
+					// increase the frequency of founded block of code
 					for (Segment newSegment : intersectingSegments) {
 						boolean isAdded = false;
 						for (int j = 0; j < segmentListNew.size(); j++) {
@@ -144,25 +144,20 @@ public class SubstitutionAlgorithm {
 			segmentListAll.clear();
 			segmentListAll.addAll(segmentListNew);
 
-			if (hasMoreIntersection == false) {
-
-				if (AppSettings.isUsingLD) {
-					// Check if we have N-M mapping with Library doumenation could break the toy
-					Segment segmentBreakToy = docsSimilarity.maxLDBreakToy(segmentListAll);
-					if ((segmentBreakToy.addedCode.size() > 0) && (segmentBreakToy.removedCode.size() > 0)) {
-						segmentListAll.add(segmentBreakToy);
-						hasMoreIntersection = true;
-						useLDTimes++;
-					}
-
-				}
-
+			//In no more intersections founds using library documenation to find more interesctions
+			if (hasMoreIntersection == false && AppSettings.isUsingLD == true) {
+				
+				// Check if we have N-M mapping with Library doumenation could break the toy
+				Segment segmentBreakToy = docsSimilarity.maxLDBreakToy(segmentListAll);
+				if ((segmentBreakToy.addedCode.size() > 0) && (segmentBreakToy.removedCode.size() > 0)) {
+					segmentListAll.add(segmentBreakToy);
+				 
+					hasMoreIntersection = true;
+					useLDTimes++;
+				}	
+			 
 			}
-			// DEBUG only
-			// System.out.println("\tData after try");
-			// System.out.println("==============================");
-			// printFragments( segmentListAll);
-			// System.out.println("==============================");
+ 
 		} while (hasMoreIntersection);
 
 	 
@@ -187,18 +182,12 @@ public class SubstitutionAlgorithm {
 	ReturnIntersectedSegment intersectSegments(Segment segment1, Segment segment2) {
 		ReturnIntersectedSegment returnIntersectedSegment = new ReturnIntersectedSegment();
 		returnIntersectedSegment.hasIntersection = false;
-		// DEBUG only
-		// segment1.print();
-		// segment2.print();
-		// System.out.println("s1:"+ segment1.addedCode.toString() +":"+
-		// segment1.removedCode.toString());
-		// System.out.println("s1:"+ segment2.addedCode.toString() +":"+
-		// segment2.removedCode.toString());
-		// build intersected functions
-		Segment segmentNew = new Segment();
-		Segment segment1New = new Segment();
+		 
+		//The new segment inherite the fromLibVersion, toLibVersion from segment1 by default
+		Segment segmentNew = new Segment(segment1.fromLibVersion,segment1.toLibVersion);
+		Segment segment1New = new Segment(segment1.fromLibVersion,segment1.toLibVersion);
 		segment1New.frequency = segment1.frequency; // Inherit the frequency
-		Segment segment2New = new Segment();
+		Segment segment2New = new Segment(segment2.fromLibVersion,segment2.toLibVersion);
 		segment2New.frequency = segment2.frequency;// Inherit the frequency
 
 		for (String funName : segment1.removedCode) {
@@ -258,9 +247,7 @@ public class SubstitutionAlgorithm {
 			returnIntersectedSegment.intersectedSegment.add(segment1New);
 		if (segment2New.addedCode.size() > 0 && segment2New.removedCode.size() > 0)
 			returnIntersectedSegment.intersectedSegment.add(segment2New);
-		// System.out.println("returnIntersectedSegment.hasIntersection:"+returnIntersectedSegment.hasIntersection);
-		// System.out.println("----------PRINT INTERSECTED-----------");
-		// printFragments(returnIntersectedSegment.intersectedSegment);
+	 
 		return returnIntersectedSegment;
 	}
 

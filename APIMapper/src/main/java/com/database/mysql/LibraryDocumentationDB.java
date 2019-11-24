@@ -63,7 +63,7 @@ public class LibraryDocumentationDB {
 			String sql = "SELECT * from LibraryDocumentation where LibraryName like '%" + LibraryName
 					+ "%' and MethodFullName like '% " + methodName + "(%' and MethodDescription!=''";
 			ResultSet rs = stmt.executeQuery(sql); // where ProjectsID=192"
-			// System.out.println(sql);
+	 
 			while (rs.next()) {
 				String fullName = rs.getString("MethodFullName").replaceAll("\\h", " ");// incase decode space with 32
 																						// ASCII code and 160 change
@@ -87,6 +87,47 @@ public class LibraryDocumentationDB {
 
 	}
 
+	
+	// TODO: change to get list of docs
+	public ArrayList<MethodDocs> getDocs(String LibraryName) {
+		ArrayList<MethodDocs> listOfMethodDocs = new ArrayList<MethodDocs>();
+
+		Statement stmt = null;
+		try {
+			Connection c = null;
+			Class.forName("com.mysql.cj.jdbc.Driver");
+			c = DriverManager.getConnection(DatabaseLogin.url, DatabaseLogin.username, DatabaseLogin.password);
+
+			c.setAutoCommit(false);
+			stmt = c.createStatement();
+			// TODO: Set only one commit for testing
+			String sql = "SELECT * from LibraryDocumentation where LibraryName like '%" + LibraryName
+					+ "%' and  MethodDescription!=''";
+			ResultSet rs = stmt.executeQuery(sql); // where ProjectsID=192"
+	 
+			while (rs.next()) {
+				String fullName = rs.getString("MethodFullName").replaceAll("\\h", " ");// incase decode space with 32
+																						// ASCII code and 160 change
+																						// then to 32 only
+				// fullName = fullName.replaceAll("[?(]+", "("); // clean data
+				listOfMethodDocs.add(new MethodDocs(fullName, rs.getString("MethodDescription").replaceAll("\\h", " "),
+						rs.getString("MethodParams").replaceAll("\\h", " "),
+						rs.getString("MethodReturn").replaceAll("\\h", " "),
+						rs.getString("ClassName").replaceAll("\\h", " "),
+						rs.getString("PackageName").replaceAll("\\h", " ")));
+			}
+			rs.close();
+			stmt.close();
+			c.close();
+		} catch (Exception e) {
+			System.err.println(e.getClass().getName() + ": " + e.getMessage());
+
+		}
+
+		return listOfMethodDocs;
+
+	}
+	
 	public static void main(String[] args) {
 		ArrayList<MethodDocs> listOfMethodDocs = new LibraryDocumentationDB().getDocs("junit", "assertTrue");
 		for (MethodDocs methodDocs : listOfMethodDocs) {

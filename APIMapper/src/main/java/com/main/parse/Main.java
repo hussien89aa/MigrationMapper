@@ -35,13 +35,13 @@ public class Main {
 		// 4- Collect Docs
 		new DocManagerClient().run();
 
-		// 5- Print results as HTML and save in DB
+		// 5- Print Fragments results as HTML 
 		new FragmentDocsMapperClient().run();
 		
-		//6- Apply SA algorithm
-		new FunctionMappingClinet().run();
+		// 6- Apply SA algorithm
+		new FunctionMappingClient().run();
 		 
-		//7- generate mapping report
+		// 7- Print Method mapping results as HTML 
 		new MethodsDocsMapperClient().run();
 		
 

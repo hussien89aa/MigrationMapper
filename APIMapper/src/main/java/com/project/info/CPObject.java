@@ -11,7 +11,8 @@ public class CPObject {
 	public Double Accuracy;
 	public boolean isCorrectMapping;
 	public boolean isCleaned;// save if we applied filter or not on this relation
-
+	public String fromLibVersion;
+	public String toLibVersion;
 	public CPObject(String value1, String value2) {
 		this.value1 = value1;
 		this.value2 = value2;

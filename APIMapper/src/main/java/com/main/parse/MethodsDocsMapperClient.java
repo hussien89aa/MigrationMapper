@@ -171,7 +171,7 @@ public class MethodsDocsMapperClient {
 					htmlData += "\n</div>\n";
 				}
 				
-				htmlData += "<br/> - List Of Real code commits has this method mapping:<ul >\n";  
+				htmlData += "</br></br></br><br/> - List Of Real code commits has this method mapping:<ul >\n";  
 				for(String commitLink: listOfCommits) {
 					htmlData += "<li ><a href=\""+ commitLink + "\">"+commitLink+"</a></li>\n";  
 				}

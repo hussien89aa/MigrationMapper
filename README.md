@@ -1,6 +1,6 @@
-## APIMappper
+## MigrationMapper
 <p align="justified">
-<b>APIMappper</b> is an open source tool that provides the developer with easy-to-use and comprehensive way of extracting, from given list of input projects, existing method mapping between two third-party libraries using program analysis based on Abstract Syntax Tree (AST) code representation. In a nutshell, MigrationMiner (i) detects, (ii) extracts, (iii) filters, and (iv) collects code changes related to any performed migration. (iiv) mapping which detects mapping between two APIs methods </p>
+<b>MigrationMapper</b> is an open source tool that provides the developer with easy-to-use and comprehensive way of extracting, from given list of input projects, existing method mapping between two third-party libraries using program analysis based on Abstract Syntax Tree (AST) code representation. In a nutshell, MigrationMiner (i) detects, (ii) extracts, (iii) filters, and (iv) collects code changes related to any performed migration. (iiv) mapping which detects mapping between two APIs methods </p>
 
 
 ### When you use this tool, please cite this paper.
@@ -30,11 +30,11 @@
 #### To run the project on your local machine you can follow one of these two tutorials:
  
  #### A- Setup database
-* First you need to build the dataset, by running the following script Database/APIMapperDBSQL.sql.
+* First you need to build the dataset, by running the following script Database/MigrationMapperDBSQL.sql.
 Open a terminal and run the following commands
 ```sql
  mysql -u root -p
- source ./APIMapperDBSQL.sql
+ source ./MigrationMapperDBSQL.sql
 ```
 
 After running the commands, the database should be created with all tables and views.
@@ -66,14 +66,14 @@ After running the commands, the database should be created with all tables and v
 
 ```
 
-#### C- Setup APIMapper Java tool
+#### C- Setup MigrationMapper Java tool
 
 * Open eclipse IDE then go to File-> import-> Maven-> existing Maven Projects-> Select MigrationMiner directory.
-* Set your local MYSQL username and password in this file [DatabaseLogin.java](https://github.com/hussien89aa/APIMapper/blob/master/APIMapper/src/main/java/com/project/settings/DatabaseLogin.java).
+* Set your local MYSQL username and password in this file [DatabaseLogin.java](https://github.com/hussien89aa/MigrationMapper/blob/master/MigrationMapper/src/main/java/com/project/settings/DatabaseLogin.java).
 * Update MigrationMiner/data/gitRepositories.csv with the list of git repositories that you want to use as input (they will be searched for potential library migrations).
-* Go to your github account under Settings > Developer Settings > Personal Access Tokens, add new token. Use token to set your GitHub token in this file [GithubLogin.java](https://github.com/hussien89aa/APIMapper/blob/master/APIMapper/src/main/java/com/project/settings/GithubLogin.java). Your token will be used so that Migration Miner can search a large number of GitHub projects without authentication issues.
+* Go to your github account under Settings > Developer Settings > Personal Access Tokens, add new token. Use token to set your GitHub token in this file [GithubLogin.java](https://github.com/hussien89aa/MigrationMapper/blob/master/MigrationMapper/src/main/java/com/project/settings/GithubLogin.java). Your token will be used so that Migration Miner can search a large number of GitHub projects without authentication issues.
 * (Optional) We print alot of logs, to avoid console buffer overflow. In eclipse IDE go to   preferences-> console-> limit console buffer size to small number such as 10000.
-* Run the [Main.java](https://github.com/hussien89aa/APIMapper/blob/master/APIMapper/src/main/java/com/main/parse/Main.java).
+* Run the [Main.java](https://github.com/hussien89aa/MigrationMapper/blob/master/MigrationMapper/src/main/java/com/main/parse/Main.java).
 
 
 ## Tool output
@@ -89,13 +89,13 @@ After running the commands, the database should be created with all tables and v
    * LibraryDocumenation: Library documentation associated with every library version that has been involved in any migration.
    * MigrationMapping: List of method mapping between two APIs.
 ##### B- Ouput as HTML
-   There will be a generated HTML file named "APIMapperOutput.html" that has the summary of all migrations detected, and for each migration, all its corresponding method mapping along with their Library documentation. An illutrative example of this file is in the following picture:
+   There will be a generated HTML file named "MigrationMapperOutput.html" that has the summary of all migrations detected, and for each migration, all its corresponding method mapping along with their Library documentation. An illutrative example of this file is in the following picture:
    
 ![main](http://attach.alruabye.net/migrationminer/methodMapping.jpg)
 
 
 ##### C- Ouput as Objects
-After running Main.java, You could read the output as objects by writing the following code. or run [TestClient.java](https://github.com/hussien89aa/APIMapper/blob/master/APIMapper/src/main/java/com/main/parse/TestClient.java). That could help you to integrate the tool with your code.
+After running Main.java, You could read the output as objects by writing the following code. or run [TestClient.java](https://github.com/hussien89aa/MigrationMapper/blob/master/MigrationMapper/src/main/java/com/main/parse/TestClient.java). That could help you to integrate the tool with your code.
 
 ```java
  
@@ -155,7 +155,7 @@ void printMethodWithDocs(String libraryName,ArrayList<String> listOfMethods ) {
 }
 ```
  
-## APIMapper has been used so far in the following papers:
+## MigrationMapper has been used so far in the following papers:
 
 * Alrubaye, H., & Mkaouer, M. W. (2018, October). [Automating the detection of third-party Java library migration at the function level](https://dl.acm.org/citation.cfm?id=3291299). In Proceedings of the 28th Annual International Conference on Computer Science and Software Engineering (pp. 60-71). IBM Corp.
 * Alrubaye, H., Mkaouer, & M. W., Ali, O (2019).[ On the Use of Information Retrieval to Automate the Detection of Third-Party Java Library Migration At The Function Level](https://dl.acm.org/citation.cfm?id=3339129), 27th IEEE/ACM International Conference on Program Comprehension 2019. 

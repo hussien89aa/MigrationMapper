@@ -3,11 +3,11 @@
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>alrubaye.apps.migrations</groupId>
-  <artifactId>APIMapper</artifactId>
+  <artifactId>MigrationMapper</artifactId>
   <version>1.0.0</version>
   <packaging>jar</packaging>
 
-  <name>APIMapper</name>
+  <name>MigrationMapper</name>
   <url>http://maven.apache.org</url>
 
   <properties>

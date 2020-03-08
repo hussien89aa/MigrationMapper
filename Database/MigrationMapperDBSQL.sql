@@ -1,6 +1,6 @@
-drop database APIMapper;
-create database APIMapper;
-use  APIMapper;
+drop database MigrationMapper;
+create database MigrationMapper;
+use  MigrationMapper;
 
 CREATE TABLE  Repositories (
 	 AppID 	INTEGER PRIMARY KEY AUTO_INCREMENT,

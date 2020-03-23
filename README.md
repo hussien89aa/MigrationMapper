@@ -44,10 +44,12 @@ After running the commands, the database should be created with all tables and v
 * Install the following packages
 
 ```
-% pip install Django
-% pip install jellyfish
-% pip install --user -U nltk
-% pip install numpy
+% pip3 install Django
+% pip3 install jellyfish
+% pip3 install --user -U nltk
+% pip3 install numpy
+% pip3 install pandas
+% pip3 install sklearn
 ```
 
 * download NLP  words

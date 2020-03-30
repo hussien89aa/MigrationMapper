@@ -24,6 +24,7 @@
 * Install Eclipse IDE for Java Developers from [here](https://www.eclipse.org/downloads/packages/).
 * Install  MYSQL Server from [here](https://dev.mysql.com/downloads/installer/).
 * Install Python 3.8 or later from [here](https://www.python.org/downloads/).
+* If you using Ubuntu install curl by running the following commands "sudo apt install curl"
 
 ## How to install and run the tool
 

@@ -1,20 +1,7 @@
 ## MigrationMapper
 <p align="justified">
-<b>MigrationMapper</b> is an open source tool that provides the developer with easy-to-use and comprehensive way of extracting, from given list of input projects, existing method mapping between two third-party libraries using program analysis based on Abstract Syntax Tree (AST) code representation. In a nutshell, MigrationMiner (i) detects, (ii) extracts, (iii) filters, and (iv) collects code changes related to any performed migration. (iiv) mapping which detects mapping between two APIs methods </p>
+<b>MigrationMapper</b> is an open source tool that provides the developer with easy-to-use and comprehensive way of extracting, from given list of input projects, existing method mapping between two third-party libraries using program analysis based on Abstract Syntax Tree (AST) code representation. In a nutshell, MigrationMiner (i) detects, (ii) extracts, (iii) filters, and (iv) collects code changes related to any performed migration. (iiv) mapping which detects mapping between two APIs methods. A demo video of MigrationMapper is available at [Youtube](https://www.youtube.com/watch?v=D-01g2GjuTg)
 
-
-### When you use this tool, please cite this paper.
-
-<pre>
-@inproceedings{alrubaye2019use,
-  title={On the use of information retrieval to automate the detection of third-party Java library migration at the method level},
-  author={Alrubaye, Hussein and Mkaouer, Mohamed Wiem and Ouni, Ali},
-  booktitle={Proceedings of the 27th International Conference on Program Comprehension},
-  pages={347--357},
-  year={2019},
-  organization={IEEE Press}
-}
-</pre>
  
 
 

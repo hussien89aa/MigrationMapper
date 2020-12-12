@@ -2,7 +2,16 @@
 <p align="justified">
 <b>MigrationMapper</b> is an open source tool that provides the developer with easy-to-use and comprehensive way of extracting, from given list of input projects, existing method mapping between two third-party libraries using program analysis based on Abstract Syntax Tree (AST) code representation. In a nutshell, MigrationMiner (i) detects, (ii) extracts, (iii) filters, and (iv) collects code changes related to any performed migration. (iiv) mapping which detects mapping between two APIs methods. A demo video of MigrationMapper is available at [Youtube](https://www.youtube.com/watch?v=D-01g2GjuTg)
 
- 
+ ### When you use this tool, please cite this paper.
+
+<pre>
+@article{alrubaye2020Automation,
+  title={Towards the Automation of Migration and Safety of Third-Party Libraries},
+  author={Alrubaye, Hussein},
+  year={2020},
+  booktitle={Rochester Institute of Technology}
+}
+</pre>
 
 
 ## Prerequisites

@@ -9,6 +9,8 @@ import com.project.settings.ProjectType;
 public class Main {
 
 	public static void main(String[] args) {
+		
+		AppSettings.loadAppSettings();  // load database and github settings
 
 		Scanner scanner = new Scanner(System.in);
 		System.out.println(

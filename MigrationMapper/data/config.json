@@ -1,0 +1,10 @@
+{
+	  "dbConnection": {
+             "url":  "jdbc:mysql://localhost/MigrationMapper?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC",
+             "userName": "Add user name here",
+             "password":"Add password here"
+        },
+        "githubConnection": {
+             "userName": "Add Github developer kep here"
+        }
+}

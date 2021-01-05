@@ -27,7 +27,7 @@ public class AppSettings {
 	    		DatabaseLogin.password = dbConnectionobj.getString("password");
 	    		
 	    		JSONObject githubConnectionobj = obj.getJSONObject("githubConnection");
-	    		GithubLogin.userName = githubConnectionobj.getString("userName");
+	    		GithubLogin.userName = githubConnectionobj.getString("developerToken");
 	    		
 	    	
 	    		

@@ -3,24 +3,25 @@
 <b>MigrationMapper</b> is an open source tool that provides the developer with easy-to-use and comprehensive way of extracting, from given list of input projects, existing method mapping between two third-party libraries using program analysis based on Abstract Syntax Tree (AST) code representation. In a nutshell, MigrationMiner (i) detects, (ii) extracts, (iii) filters, and (iv) collects code changes related to any performed migration. (iiv) mapping which detects mapping between two APIs methods. A demo video of MigrationMapper is available at [Youtube](https://www.youtube.com/watch?v=D-01g2GjuTg)
 
  ### When you use this tool, please cite this paper.
-
 <pre>
-@article{alrubaye2020Automation,
-  title={Towards the Automation of Migration and Safety of Third-Party Libraries},
-  author={Alrubaye, Hussein},
-  year={2020},
-  booktitle={Rochester Institute of Technology}
+@inproceedings{alrubaye2019use,
+  title={On the use of information retrieval to automate the detection of third-party java library migration at the method level},
+  author={Alrubaye, Hussein and Mkaouer, Mohamed Wiem and Ouni, Ali},
+  booktitle={2019 IEEE/ACM 27th International Conference on Program Comprehension (ICPC)},
+  pages={347--357},
+  year={2019},
+  organization={IEEE}
 }
 </pre>
 
 
 ## Prerequisites
 
-* Install java JKD from [here](https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html).
-* Install Eclipse IDE for Java Developers from [here](https://www.eclipse.org/downloads/packages/).
+* Install java JDK >= 8 from [here](https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html).
+* Install Any Java IDE that support Maven Java project such as (Eclipse, IntelliJ IDEA, etc). 
 * Install  MYSQL Server from [here](https://dev.mysql.com/downloads/installer/).
 * Install Python 3.8 or later from [here](https://www.python.org/downloads/).
-* If you using Ubuntu install curl by running the following commands "sudo apt install curl"
+* Tool only Support MacOS and Linux based OS (ex, Ubuntu). If you using Ubuntu install curl by running the following commands "sudo apt install curl"
 
 ## How to install and run the tool
 

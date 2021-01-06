@@ -18,10 +18,10 @@
 ## Prerequisites
 
 * Install java JDK >= 8 from [here](https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html).
-* Install Any Java IDE that support Maven Java project such as (Eclipse, IntelliJ IDEA, etc). 
 * Install  MYSQL Server from [here](https://dev.mysql.com/downloads/installer/).
 * Install Python 3.8 or later from [here](https://www.python.org/downloads/).
 * Tool only Support MacOS and Linux based OS (ex, Ubuntu). If you using Ubuntu install curl by running the following commands "sudo apt install curl"
+
 
 ## How to install and run the tool
 
@@ -66,14 +66,31 @@ After running the commands, the database should be created with all tables and v
 
 ```
 
-#### C- Setup MigrationMapper Java tool
+#### C- Setup MigrationMapper
+* Update [MigrationMiner/data/gitRepositories.csv](https://github.com/hussien89aa/MigrationMapper/blob/master/MigrationMapper/data/gitRepositories.csv) with the list of git repositories that you want to use as input (they will be searched for potential library migrations).
+* Update [MigrationMiner/data/config.json](https://github.com/hussien89aa/MigrationMapper/blob/master/MigrationMapper/data/config.json) to set your local MYSQL username and password  and github developer token in. to get github developer token Go to your github account under Settings > Developer Settings > Personal Access Tokens, add new token. Your token will be used so that Migration Miner can search a large number of GitHub projects without authentication issues.
 
+#### D- Run MigrationMapper
+##### 1- Run MigrationMapper from the source code uisng IDE
+* Install Any Java IDE that support Maven Java project such as (Eclipse, IntelliJ IDEA, etc).
 * Open eclipse IDE then go to File-> import-> Maven-> existing Maven Projects-> Select MigrationMiner directory.
-* Update MigrationMiner/data/gitRepositories.csv with the list of git repositories that you want to use as input (they will be searched for potential library migrations).
-* Set your local MYSQL username and password  and github developer token in [config.json](https://github.com/hussien89aa/MigrationMapper/blob/master/MigrationMapper/data/config.json). to get github developer token Go to your github account under Settings > Developer Settings > Personal Access Tokens, add new token. Your token will be used so that Migration Miner can search a large number of GitHub projects without authentication issues.
 * (Optional) We print alot of logs, to avoid console buffer overflow. In eclipse IDE go to   preferences-> console-> limit console buffer size to small number such as 10000.
 * Run the [Main.java](https://github.com/hussien89aa/MigrationMapper/blob/master/MigrationMapper/src/main/java/com/main/parse/Main.java).
+##### 2- Run MigrationMapper using the Jar file (MigrationMapper.jar)
+* Copy MigrationMapper.jar and [data](https://github.com/hussien89aa/MigrationMapper/blob/master/MigrationMapper/data/) folder that has gitRepositories.csv and config.json that you just update then to same directory.
+```
+--|
+  |- MigrationMapper.jar
+  |- data
+       |- gitRepositories.csv
+       |- config.json
+```
 
+* from terminal run
+```
+% java -jar MigrationMapper.jar
+
+```
 
 ## Tool output
 

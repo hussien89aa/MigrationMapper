@@ -70,7 +70,7 @@ After running the commands, the database should be created with all tables and v
 * Update [MigrationMiner/data/gitRepositories.csv](https://github.com/hussien89aa/MigrationMapper/blob/master/MigrationMapper/data/gitRepositories.csv) with the list of git repositories that you want to use as input (they will be searched for potential library migrations).
 * Update [MigrationMiner/data/config.json](https://github.com/hussien89aa/MigrationMapper/blob/master/MigrationMapper/data/config.json) to set your local MYSQL username and password  and github developer token in. to get github developer token Go to your github account under Settings > Developer Settings > Personal Access Tokens, add new token. Your token will be used so that Migration Miner can search a large number of GitHub projects without authentication issues.
 
-#### D- Run MigrationMapper
+#### D- Run MigrationMapper: There are two ways to run the tool either using IDE or terminal which are:
 ##### 1- Run MigrationMapper from the source code uisng IDE
 * Install Any Java IDE that support Maven Java project such as (Eclipse, IntelliJ IDEA, etc).
 * Open eclipse IDE then go to File-> import-> Maven-> existing Maven Projects-> Select MigrationMiner directory.
@@ -174,7 +174,8 @@ void printMethodWithDocs(String libraryName,ArrayList<String> listOfMethods ) {
 ## MigrationMapper has been used so far in the following papers:
 
 * Alrubaye, H., & Mkaouer, M. W. (2018, October). [Automating the detection of third-party Java library migration at the function level](https://dl.acm.org/citation.cfm?id=3291299). In Proceedings of the 28th Annual International Conference on Computer Science and Software Engineering (pp. 60-71). IBM Corp.
-* Alrubaye, H., Mkaouer, & M. W., Ali, O (2019).[ On the Use of Information Retrieval to Automate the Detection of Third-Party Java Library Migration At The Function Level](https://dl.acm.org/citation.cfm?id=3339129), 27th IEEE/ACM International Conference on Program Comprehension 2019. 
+* Alrubaye, H., Mkaouer, & M. W., Ali, O (2019).[ On the Use of Information Retrieval to Automate the Detection of Third-Party Java Library Migration At The Function Level](https://dl.acm.org/citation.cfm?id=3339129), 27th IEEE/ACM International Conference on Program Comprehension 2019.
+* Alrubaye, H (2020) [Towards the Automation of Migration and Safety of Third-Party Libraries](https://scholarworks.rit.edu/theses/10614/), Rochester Institute of Technology
  
 ## License
 

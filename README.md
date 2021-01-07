@@ -20,7 +20,7 @@
 * Install java JDK >= 8 from [here](https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html).
 * Install  MYSQL Server from [here](https://dev.mysql.com/downloads/installer/).
 * Install Python 3.8 or later from [here](https://www.python.org/downloads/).
-* Tool only Support MacOS and Linux based OS (ex, Ubuntu). If you using Ubuntu install curl by running the following commands "sudo apt install curl"
+* Tool supports only MacOS and Linux based OS (ex, Ubuntu). If you are using Ubuntu, please install curl by running the following commands "sudo apt install curl".
 
 
 ## How to install and run the tool
@@ -71,13 +71,15 @@ After running the commands, the database should be created with all tables and v
 * Update [MigrationMiner/data/config.json](https://github.com/hussien89aa/MigrationMapper/blob/master/MigrationMapper/data/config.json) to set your local MYSQL username and password  and github developer token in. to get github developer token Go to your github account under Settings > Developer Settings > Personal Access Tokens, add new token. Your token will be used so that Migration Miner can search a large number of GitHub projects without authentication issues.
 
 #### D- Run MigrationMapper: There are two ways to run the tool either using IDE or terminal which are:
+
 ##### 1- Run MigrationMapper from the source code uisng IDE
 * Install Any Java IDE that support Maven Java project such as (Eclipse, IntelliJ IDEA, etc).
 * Open eclipse IDE then go to File-> import-> Maven-> existing Maven Projects-> Select MigrationMiner directory.
 * (Optional) We print alot of logs, to avoid console buffer overflow. In eclipse IDE go to   preferences-> console-> limit console buffer size to small number such as 10000.
 * Run the [Main.java](https://github.com/hussien89aa/MigrationMapper/blob/master/MigrationMapper/src/main/java/com/main/parse/Main.java).
+
 ##### 2- Run MigrationMapper using the Jar file (MigrationMapper.jar)
-* Copy MigrationMapper.jar and [data](https://github.com/hussien89aa/MigrationMapper/blob/master/MigrationMapper/data/) folder that has gitRepositories.csv and config.json that you just update then to same directory.
+* Copy MigrationMapper.jar and [data](https://github.com/hussien89aa/MigrationMapper/blob/master/MigrationMapper/data/) folder that has gitRepositories.csv and config.json, which you need to update, to same directory.
 ```
 --|
   |- MigrationMapper.jar
@@ -97,11 +99,11 @@ After running the commands, the database should be created with all tables and v
 ##### A- Ouput as Relational Database
 * After running Main.java, the database Tables will be filled with any migration infomation found. For each potential migration, the following information can be found in database, whose schema is as follows:
  
-   * Repositories: Has the list of projects that scanned by the tool.
-   * AppCommits: Has the list of projects' commits information (Commit Id, developer name, Commit text, and commit date).
+   * Repositories: List of projects that are scanned by the tool.
+   * AppCommits: List of projects' commits information (Commit Id, developer name, Commit text, and commit date).
    * ProjectLibraries: List of libraries that were added or removed at every commit.
    * MigrationRules:  List of migration Rules that were detected from the Dataset.
-   * MigrationSegments: List Of migration Fragments that were extract from software migration.
+   * MigrationSegments: List Of migration Fragments that were extracted from software migration.
    * LibraryDocumenation: Library documentation associated with every library version that has been involved in any migration.
    * MigrationMapping: List of method mapping between two APIs.
 ##### B- Ouput as HTML

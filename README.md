@@ -11,8 +11,6 @@
   pages={66--81},
   year={2020}
 }
-Al-Rubaye, Hussein Ahmed Talib, "Towards the Automation of Migration and Safety of Third-Party Libraries" (2020). Thesis. Rochester Institute of Technology. Accessed from
-https://scholarworks.rit.edu/theses/10614
 </pre>
 
 

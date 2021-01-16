@@ -4,14 +4,8 @@
 
  ### When you use this tool, please cite this paper.
 <pre>
-@inproceedings{alrubaye2019use,
-  title={On the use of information retrieval to automate the detection of third-party java library migration at the method level},
-  author={Alrubaye, Hussein and Mkaouer, Mohamed Wiem and Ouni, Ali},
-  booktitle={2019 IEEE/ACM 27th International Conference on Program Comprehension (ICPC)},
-  pages={347--357},
-  year={2019},
-  organization={IEEE}
-}
+Al-Rubaye, Hussein Ahmed Talib, "Towards the Automation of Migration and Safety of Third-Party Libraries" (2020). Thesis. Rochester Institute of Technology. Accessed from
+https://scholarworks.rit.edu/theses/10614
 </pre>
 
 

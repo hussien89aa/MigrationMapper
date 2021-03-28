@@ -4,12 +4,13 @@
 
  ### When you use this tool, please cite this paper.
 <pre>
-@article{al2020towards,
-  title={Towards the Automation of Migration and Safety of Third-Party Libraries},
-  author={Al-Rubaye, Hussein Ahmed Talib},
-  organization={Rochester Institute of Technology},
-  pages={66--81},
-  year={2020}
+@inproceedings{alrubaye2019use,
+  title={On the use of information retrieval to automate the detection of third-party java library migration at the method level},
+  author={Alrubaye, Hussein and Mkaouer, Mohamed Wiem and Ouni, Ali},
+  booktitle={2019 IEEE/ACM 27th International Conference on Program Comprehension (ICPC)},
+  pages={347--357},
+  year={2019},
+  organization={IEEE}
 }
 </pre>
 
